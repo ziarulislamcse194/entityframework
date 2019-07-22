@@ -33,7 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,11 +50,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\ProductManager.cs" />
+    <Compile Include="DatabaseContext\ProjectDbContext.cs" />
+    <Compile Include="Migrations\201907220745286_InitialCreate.cs" />
+    <Compile Include="Migrations\201907220745286_InitialCreate.Designer.cs">
+      <DependentUpon>201907220745286_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907220811381_Product_Description_Added.cs" />
+    <Compile Include="Migrations\201907220811381_Product_Description_Added.Designer.cs">
+      <DependentUpon>201907220811381_Product_Description_Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907221252019_CategoryAdded.cs" />
+    <Compile Include="Migrations\201907221252019_CategoryAdded.Designer.cs">
+      <DependentUpon>201907221252019_CategoryAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ProductRepositry.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201907220745286_InitialCreate.resx">
+      <DependentUpon>201907220745286_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907220811381_Product_Description_Added.resx">
+      <DependentUpon>201907220811381_Product_Description_Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907221252019_CategoryAdded.resx">
+      <DependentUpon>201907221252019_CategoryAdded.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
